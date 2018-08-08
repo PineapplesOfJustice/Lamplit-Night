@@ -39,7 +39,7 @@ var textKill = makeText("Kill Count: " + killCount + ";", 30, 380, 20, "Special 
 var textSymbol = makeText("Symbol: " + symbol + ";", 30, 410, 20, "Special Elite", "white", 1);
 var versionText = makeText("Version " + gameVersion, 930, 443, 10, "Special Elite", "white", 1);
 var light = makeCircle(lampX, lampY, radius, "yellow", lightIntensity);
-var lamp = makeImage("Piskel Art/Lamp.png", (lampX - 109.5), (lampY - 125), 219, 330, 1);
+var lamp = makeImage("Images/Piskel Art/Lamp.png", (lampX - 109.5), (lampY - 125), 219, 330, 1);
 var lightEnd = makeCircle(lampX, lampY, radius/3, "yellow", 0);
 lightEnd.addEventListener("mouseenter", function(){symbol = "an idea";});
 lightEnd.addEventListener("mouseleave", function(){symbol = "life";});
@@ -52,14 +52,14 @@ startText1.addEventListener("mouseleave", function(){symbol = "life";});
 var startText2 = makeText("Lamplit Night", 320, 250, 50, "Special Elite", "black", 1);
 startText2.addEventListener("mouseenter", function(){symbol = "an idea";});
 startText2.addEventListener("mouseleave", function(){symbol = "life";});
-//bug[maxLength] = makeImage("Piskel Art/Gnat.png", 50, 60, 40, 32, 1);
+//bug[maxLength] = makeImage("Images/Piskel Art/Gnat.png", 50, 60, 40, 32, 1);
 
-//makeImage("Piskel Art/Firefly.png", 20, 20, 66, 39, 1);
+//makeImage("Images/Piskel Art/Firefly.png", 20, 20, 66, 39, 1);
 if(!sessionStorage.cursorColor){
   sessionStorage.cursorColor = "red";
 }
-if(sessionStorage.cursorColor == "red"){ var cursor = makeImage("Piskel Art/Cursor1.png", 20, 20, 88, 52, 1); }
-else if(sessionStorage.cursorColor == "green"){ var cursor = makeImage("Piskel Art/Cursor.png", 20, 20, 88, 52, 1); }
+if(sessionStorage.cursorColor == "red"){ var cursor = makeImage("Images/Piskel Art/Cursor1.png", 20, 20, 88, 52, 1); }
+else if(sessionStorage.cursorColor == "green"){ var cursor = makeImage("Images/Piskel Art/Cursor.png", 20, 20, 88, 52, 1); }
 cursor.setAttribute("cursor", "pointer");
 cursor.addEventListener("mouseenter", function(){symbol = "brainstorm ER";});
 cursor.addEventListener("mouseleave", function(){symbol = "life";});
@@ -78,12 +78,12 @@ if(localStorage.normalScore){ var normalSText = makeText("High Score: " + localS
 var normalButton = makeRect(850, 170, 110, 30, "white", 1); //378
 normalButton.setAttribute("cursor", "pointer");
 normalButton.addEventListener("click", function(){gameMode="Normal"; startGame();});
-normalButton.addEventListener("mouseenter", function(){normalButton.setAttribute("fill", "#DCDCDC"); normalText.setAttribute("fill", "#DCDCDC");});
+normalButton.addEventListener("mouseenter", function(){normalButton.setAttribute("fill", "#D3D3D3"); normalText.setAttribute("fill", "#D3D3D3");});
 normalButton.addEventListener("mouseleave", function(){normalButton.setAttribute("fill", "white"); normalText.setAttribute("fill", "black");});
 var normalText = makeText("Normal", 863, 192, 24, "Special Elite", "black", 1);
 normalText.setAttribute("cursor", "pointer");
 normalText.addEventListener("click", function(){gameMode="Normal"; startGame();});
-normalText.addEventListener("mouseenter", function(){normalButton.setAttribute("fill", "#DCDCDC"); normalText.setAttribute("fill", "white");});
+normalText.addEventListener("mouseenter", function(){normalButton.setAttribute("fill", "#D3D3D3"); normalText.setAttribute("fill", "black");});
 normalText.addEventListener("mouseleave", function(){normalButton.setAttribute("fill", "white"); normalText.setAttribute("fill", "black");});
 
 if(localStorage.hardScore){ var hardSText = makeText("High Score: " + localStorage.hardScore + ";", 850, 242, 10, "Special Elite", "white", 1); }
@@ -111,10 +111,10 @@ insaneText.addEventListener("mouseenter", function(){insaneButton.setAttribute("
 insaneText.addEventListener("mouseleave", function(){insaneButton.setAttribute("fill", "white"); insaneText.setAttribute("fill", "black");});
 
 /*
-makeImage("Piskel Art/Cursor.png", 250, 200, 44, 26, 1);
-makeImage("Piskel Art/Cursor.png", 800, 400, 44, 26, 1);
-makeImage("Piskel Art/Cursor.png", 700, 250, 22, 13, 1);
-makeImage("Piskel Art/Cursor.png", 900, 50, 66, 39, 1);
+makeImage("Images/Piskel Art/Cursor.png", 250, 200, 44, 26, 1);
+makeImage("Images/Piskel Art/Cursor.png", 800, 400, 44, 26, 1);
+makeImage("Images/Piskel Art/Cursor.png", 700, 250, 22, 13, 1);
+makeImage("Images/Piskel Art/Cursor.png", 900, 50, 66, 39, 1);
 */
 
 /*
@@ -125,7 +125,7 @@ function moveMouse(event){
   pt.y = event.clientY;
   var svgPt = pt.matrixTransform(canvas.getScreenCTM().inverse());  
   cursor.remove();  
-  cursor = makeImage("Piskel Art/Cursor.png", svgPt.x -34, svgPt.y-20, 66, 39, 1);
+  cursor = makeImage("Images/Piskel Art/Cursor.png", svgPt.x -34, svgPt.y-20, 66, 39, 1);
 }
 
 canvas.addEventListener("mouseleave", eraseMouse);
@@ -140,11 +140,11 @@ cursor.addEventListener("click", changeCursor);
 function changeCursor(){
   if(sessionStorage.cursorColor == "red"){
     sessionStorage.cursorColor = "green";
-    cursor.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Piskel Art/Cursor.png");
+    cursor.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Images/Piskel Art/Cursor.png");
   }
   else if(sessionStorage.cursorColor == "green"){
     sessionStorage.cursorColor = "red";
-    cursor.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Piskel Art/Cursor1.png");
+    cursor.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Images/Piskel Art/Cursor1.png");
   }
 }
 
@@ -175,8 +175,8 @@ function startGame(){
   insaneButton.remove();
   insaneText.remove();
   if(localStorage.insaneScore){ insaneSText.remove(); }
-  if(sessionStorage.cursorColor == "red"){ document.getElementById("canvas").style.cursor = "url('Piskel Art/Cursor1.png') 16 16, crosshair"; } 
-  if(sessionStorage.cursorColor == "green"){ document.getElementById("canvas").style.cursor = "url('Piskel Art/Cursor.png') 16 16, crosshair"; } 
+  if(sessionStorage.cursorColor == "red"){ document.getElementById("canvas").style.cursor = "url('Images/Piskel Art/Cursor1.png') 16 16, crosshair"; } 
+  if(sessionStorage.cursorColor == "green"){ document.getElementById("canvas").style.cursor = "url('Images/Piskel Art/Cursor.png') 16 16, crosshair"; } 
   cursor.remove();
   versionText.remove();  
   setTimeout(function(){ startText1.remove(); }, 1000);
@@ -327,13 +327,13 @@ function makeBug(bugType, amount){
     else if(type < 1.0){ posXneg = -1; }
        
     if(bugType === 1){
-      if(posXneg === 1){ bug[maxLength] = makeImage("Piskel Art/Gnat.png", x, y, 40, 32, 1); }
-      else if(posXneg === -1){ bug[maxLength] = makeImage("Piskel Art/Gnat Mirrored.png", x, y, 40, 32, 1); }
+      if(posXneg === 1){ bug[maxLength] = makeImage("Images/Piskel Art/Gnat.png", x, y, 40, 32, 1); }
+      else if(posXneg === -1){ bug[maxLength] = makeImage("Images/Piskel Art/Gnat Mirrored.png", x, y, 40, 32, 1); }
       bug[maxLength].addEventListener("mouseenter", function(){symbol = "tiny trouble";});
     }
     else if(bugType === 2){  
-      if(posXneg === 1){ bug[maxLength] = makeImage("Piskel Art/Firefly.png", x, y, 55, 32.5, 1); }
-      else if(posXneg === -1){ bug[maxLength] = makeImage("Piskel Art/Firefly Mirrored.png", x, y, 55, 32.5, 1); }
+      if(posXneg === 1){ bug[maxLength] = makeImage("Images/Piskel Art/Firefly.png", x, y, 55, 32.5, 1); }
+      else if(posXneg === -1){ bug[maxLength] = makeImage("Images/Piskel Art/Firefly Mirrored.png", x, y, 55, 32.5, 1); }
       bug[maxLength].addEventListener("mouseenter", function(){symbol = "unexpected pitfall";});
       posXneg = posXneg * bulletSpeed;  
     }
@@ -355,8 +355,8 @@ function shootBullet(event){
   
   bulletX.push(posXneg * bulletSpeed);
   bulletY.push((posXneg * bulletSpeed) * (lampY - Math.round(svgPt.y)) / (lampX - Math.round(svgPt.x)));
-  if(sessionStorage.cursorColor == "red"){ bullet.push(makeImage("Piskel Art/Projectile1.png", lampX, lampY, 10, 10, 1)); }
-  if(sessionStorage.cursorColor == "green"){ bullet.push(makeImage("Piskel Art/Projectile2.png", lampX, lampY, 10, 10, 1)); }
+  if(sessionStorage.cursorColor == "red"){ bullet.push(makeImage("Images/Piskel Art/Projectile1.png", lampX, lampY, 10, 10, 1)); }
+  if(sessionStorage.cursorColor == "green"){ bullet.push(makeImage("Images/Piskel Art/Projectile2.png", lampX, lampY, 10, 10, 1)); }
   bullet[bullet.length-1].addEventListener("mouseenter", function(){ symbol = "temporary solution"; });
   bullet[bullet.length-1].addEventListener("mouseleave", function(){ symbol = "life"; });  
 }
@@ -454,7 +454,7 @@ function restartGame(){
   setTimeout(function(){beginning = true; enderGame = false; arena = makeRect(0, 0, 1000, 450, "black"); document.removeEventListener("click", shootBullet);
  }, 200);
   setTimeout(function(){arena.remove();}, 500);
-  setTimeout(function(){arena.remove(); lamp.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Piskel Art/Lamp Out.png"); arena = makeRect(0, 0, 1000, 450, "black");}, 1000);
+  setTimeout(function(){arena.remove(); lamp.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "Images/Piskel Art/Lamp Out.png"); arena = makeRect(0, 0, 1000, 450, "black");}, 1000);
   setTimeout(function(){arena.remove();}, 1300);
   setTimeout(function(){arena.remove(); arena = makeRect(0, 0, 1000, 450, "black");}, 1600);  
   setTimeout(function(){arena.remove();}, 1800);
